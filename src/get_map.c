@@ -22,7 +22,7 @@ void			check(char *line)
 	while (line[i])
 	{
 		if (line[i] != '.' && line[i] != '\0' && line[i] != '#')
-			ft_exit("Bad bad not good2");
+			ft_exit("Bad char, please only use . and #");
 		i++;
 	}
 		ft_putendl(line);
