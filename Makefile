@@ -29,6 +29,7 @@ INC_PATH =		./inc/
 
 SRC_NAME =		main.c\
 				get_map.c\
+				pieces.c
 
 
 OBJ_NAME =		$(SRC_NAME:.c=.o)
@@ -50,7 +51,7 @@ INCLIBFT = 		$(LIBFT_PATH)inc
 
 LIBFT_FLAG = 	-L$(LIBFT_PATH) -lft
 
-all:			libft $(NAME) 
+all:			libft $(NAME)
 
 $(NAME):		$(OBJ)
 				@$(CC) $(LIBFT_FLAG) -o $@ $^
@@ -69,7 +70,7 @@ clean:
 				@make -C $(LIBFT_PATH) clean
 				@rm -f $(OBJ)
 
-fclean:			
+fclean:
 				@rm -f $(OBJ)
 				@make -C $(LIBFT_PATH) fclean
 				@rm -f $(NAME)

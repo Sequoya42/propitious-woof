@@ -12,10 +12,16 @@
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
-{
-	if (ac != 2)
-		return (-1);
-	get_map(av[1]);
-	return (0);
+t_prog *get_prog(void) {
+  static t_prog p;
+
+  return (&p);
+}
+
+int main(int ac, char **av) {
+  if (ac != 2)
+    return (-1);
+  get_map(av[1]);
+  print_pieces();
+  return (0);
 }
