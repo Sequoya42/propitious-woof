@@ -19,9 +19,17 @@ t_prog *get_prog(void) {
 }
 
 int main(int ac, char **av) {
+  t_prog *p;
+  // int size;
+
   if (ac != 2)
     return (-1);
-  get_map(av[1]);
+  p = get_prog();
+  init(av[1], p);
   print_pieces();
+
+  print_map(p->map);
+
+  solve(p);
   return (0);
 }

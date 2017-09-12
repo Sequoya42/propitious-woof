@@ -16,27 +16,36 @@
 #include "libft.h"
 #include <fcntl.h>
 
-typedef struct s_gen t_gen;
+typedef struct s_gen t_triminos;
 typedef struct s_prog t_prog;
 
-struct s_prog
+struct 			s_prog
 {
-t_gen		*first;
-t_gen 	*last;
-char 		**map;
+	int 			size;
+	t_triminos		*first;
+	t_triminos 	*last;
+	char 			**map;
 };
 
 struct			s_gen
 {
-	char		*piece;
-	t_gen			*next;
+	char			*piece;
+	char			name;
+	t_triminos		*next;
 };
 
-t_prog 		*get_prog(void);
+t_prog 			*get_prog(void);
 
-void			get_map(char *name);
-t_gen			*fill_piece(char *piece);
-void 			add_piece(t_gen *n);
-void 			print_pieces();
+void				init(char *file, t_prog *p);
+t_triminos			*fill_piece(char *piece, char name);
+void 				add_piece(t_triminos *n);
+void 				print_pieces();
+
+// ******** ********  resolve  ******** ********
+void 				solve(t_prog *p);
+
+// ******** ********  tools  ******** ********
+int 				ft_sqrt(int n);
+void 				print_map(char **map);
 
 #endif

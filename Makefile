@@ -28,8 +28,10 @@ LIBFT_PATH =	./libft/
 INC_PATH =		./inc/
 
 SRC_NAME =		main.c\
-				get_map.c\
-				pieces.c
+							tools.c\
+							init.c\
+							pieces.c\
+							resolve.c
 
 
 OBJ_NAME =		$(SRC_NAME:.c=.o)
