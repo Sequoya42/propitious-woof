@@ -24,7 +24,7 @@ struct 			s_prog
 	int 			size;
 	t_triminos		*first;
 	t_triminos 	*last;
-	char 			**map;
+	char 			*map;
 char 			 nik[2048];
 };
 
@@ -51,6 +51,6 @@ void 				solve(t_prog *p);
 // ******** ********  tools  ******** ********
 int 				ft_sqrt(int n);
 char 				*displace(char *s, int start, int sense);
-void 				print_map(char **map);
+void 				print_map(char *map);
 
 #endif

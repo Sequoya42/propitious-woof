@@ -30,6 +30,7 @@ INC_PATH =		./inc/
 SRC_NAME =		main.c\
 							tools.c\
 							init.c\
+							fill_piece.c\
 							pieces.c\
 							resolve.c
 

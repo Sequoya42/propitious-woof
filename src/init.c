@@ -63,21 +63,16 @@ int verify_touch(char *line) {
 }
 
 char **init_map(int n) {
-  char **map;
+  char *map;
   int i;
   int j;
+  int l;
 
-  map = ft_memalloc(sizeof(*map) * (n + 1));
+  l = (n * n) + 1;
   i = 0;
-  while (i < n) {
-    j = 0;
-    map[i] = ft_memalloc(sizeof(**map) * (n + 1));
-
-    while (j < n) {
-      map[i][j] = '.';
-      j++;
-    }
-    i++;
+  map = ft_memalloc(sizeof(*map) * l);
+  while (i < l) {
+    map[i++] = '.';
   }
 
   return map;

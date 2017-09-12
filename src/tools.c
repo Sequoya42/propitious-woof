@@ -45,13 +45,17 @@ char *displace(char *s, int start, int c) {
   return ret;
 }
 
-void print_map(char **map) {
+void print_map(char *map) {
   int i;
 
   ft_putendl("******** ******** la map   ******** ********");
   i = 0;
+  int n = ft_sqrt(ft_strlen(map));
   while (map[i]) {
-    ft_putendl(map[i]);
+    ft_putchar(map[i]);
+    if (!(i % n))
+      ft_putchar('\n');
+    // ft_putendl(map[i]);
     i++;
   }
 }
