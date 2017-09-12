@@ -30,8 +30,11 @@ char 			 nik[2048];
 
 struct			s_gen
 {
-	char			*piece;
 	char			name;
+	char			*piece;
+	char			*res;
+	char			*transform;
+	char			*transformTwo;
 	t_triminos		*next;
 };
 
@@ -47,6 +50,7 @@ void 				solve(t_prog *p);
 
 // ******** ********  tools  ******** ********
 int 				ft_sqrt(int n);
+char 				*displace(char *s, int start, int sense);
 void 				print_map(char **map);
 
 #endif

@@ -3,7 +3,6 @@
 // void place_piece(t_triminos *t) {
 //   char **map;
 //
-
 //   map = get_prog()->map;
 // }
 void solve(t_prog *p) {
@@ -12,7 +11,7 @@ void solve(t_prog *p) {
   f = p->first;
 
   while (f) {
-    place_piece(f);
+    // place_piece(f);
     f = f->next;
   }
 }
