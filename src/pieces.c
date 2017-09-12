@@ -27,6 +27,7 @@ void print_piece(t_triminos *g) {
   int i;
 
   i = 0;
+  ft_putendl(g->piece);
   while (g->piece[i]) {
     ft_putchar(g->piece[i] == '.' ? '.' : g->name);
     i++;

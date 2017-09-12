@@ -25,6 +25,7 @@ struct 			s_prog
 	t_triminos		*first;
 	t_triminos 	*last;
 	char 			**map;
+char 			 nik[2048];
 };
 
 struct			s_gen
