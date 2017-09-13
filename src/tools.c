@@ -10,19 +10,6 @@ int ft_sqrt(int n) {
   return i;
 }
 
-/*
-. . . .
-. x x .
-. x x .
-. . . .
-
-x: i % c
-y: i / c
-x + y
-i % c + i / c
-----
-i = i + 1 / 4 +
-*/
 char *displace(char *s, int start, int c) {
   char *ret;
   int i;
@@ -51,11 +38,14 @@ void print_map(char *map) {
   ft_putendl("******** ******** la map   ******** ********");
   i = 0;
   int n = ft_sqrt(ft_strlen(map));
+  ft_putnbrendl(n);
+  ft_putnbrendl(ft_strlen(map));
   while (map[i]) {
-    ft_putchar(map[i]);
     if (!(i % n))
       ft_putchar('\n');
+      ft_putchar(map[i]);
     // ft_putendl(map[i]);
     i++;
   }
+  ft_putchar('\n');
 }

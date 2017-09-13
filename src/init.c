@@ -62,16 +62,15 @@ int verify_touch(char *line) {
   return 1;
 }
 
-char **init_map(int n) {
-  char *map;
-  int i;
-  int j;
+char *init_map(int n) {
+   char *map;
+  int  i;
   int l;
 
   l = (n * n) + 1;
   i = 0;
   map = ft_memalloc(sizeof(*map) * l);
-  while (i < l) {
+  while (i < (l-1)) {
     map[i++] = '.';
   }
 
@@ -82,8 +81,8 @@ void init(char *file, t_prog *p) {
   int n;
   t_triminos *t;
 
-  n = verif(file);
-  p->size = n;
+  n =  verif(file);
+   p->size = n;
   if (n == 0)
     ft_exit("Bad map!");
   t = p->first;

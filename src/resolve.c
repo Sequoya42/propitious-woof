@@ -1,17 +1,8 @@
 #include "fillit.h"
 
 void place_piece(t_triminos *t) {
-  char **map;
-  int x;
-  int y;
-  (void)t;
-  x = -1;
-  y = -1;
+  char *map;
   map = get_prog()->map;
-  while (map[++y]) {
-    while (map[y][++x]) {
-    }
-  }
 }
 
 void solve(t_prog *p) {
@@ -20,7 +11,11 @@ void solve(t_prog *p) {
   f = p->first;
 
   while (f) {
-    // place_piece(f);
-    f = f->next;
+    if (!place_piece(f)){
+      f  = p->first;
+    }
+      else {
+        f = f->next;
+      }
   }
 }
