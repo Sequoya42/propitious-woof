@@ -27,7 +27,7 @@ int place_piece(t_triminos *t, t_prog *p, int start) {
    firstPos.y = i / p->size;
   x[3] = i;
 while (c < 3){
-   newPos.x = firstPos.x + t->pos[c].x;
+   newPos.x = i % p->size + t->pos[c].x;
    newPos.y =  firstPos.y + t->pos[c].y;
    if (newPos.x >= p->size ||
       newPos.x < 0 ||
@@ -36,7 +36,6 @@ while (c < 3){
      return place_piece(t, p, start + 1);
    }
   x[c] = newPos.y * p->size + newPos.x;
-  // ft_print("x de c: %d\n", x[c]);
   if (p->map[x[c]] != '.')
   return place_piece(t, p, start + 1);
   c++;
@@ -55,10 +54,13 @@ void solve(t_prog *p) {
   while (f){
     ft_colendl(&f->name);
     if (!place_piece(f, p, 0)){
+      p->size += 1;
+      p->map = init_map(p->size);
       f  = p->first;
     }
       else {
         f = f->next;
       }
   }
+  ft_colendl("LA FIN");
 }

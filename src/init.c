@@ -88,7 +88,7 @@ void init(char *file, t_prog *p) {
   t_triminos *t;
 
   n =  verif(file);
-  n = 8;
+  n = 2;
    p->size = n;
   if (n == 0)
     ft_exit("Bad map!");

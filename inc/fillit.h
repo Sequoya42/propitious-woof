@@ -59,9 +59,9 @@ struct			s_gen
 };
 
 t_prog 			*get_prog(void);
-
+char 				*init_map(int n);
 void				init(char *file, t_prog *p);
-t_triminos			*fill_piece(char *piece, char name);
+t_triminos	*fill_piece(char *piece, char name);
 void 				add_piece(t_triminos *n);
 void 				print_pieces();
 
