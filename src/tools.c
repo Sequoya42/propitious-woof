@@ -10,6 +10,12 @@ int ft_sqrt(int n) {
   return i;
 }
 
+int find_first(char *s, char c, int start) {
+  while (s[start] != c)
+    start++;
+    return start;
+}
+
 char *displace(char *s, int start, int c) {
   char *ret;
   int i;
@@ -30,22 +36,4 @@ char *displace(char *s, int start, int c) {
   }
   ret[i] = '\0';
   return ret;
-}
-
-void print_map(char *map) {
-  int i;
-
-  ft_putendl("******** ******** la map   ******** ********");
-  i = 0;
-  int n = ft_sqrt(ft_strlen(map));
-  ft_putnbrendl(n);
-  ft_putnbrendl(ft_strlen(map));
-  while (map[i]) {
-    if (!(i % n))
-      ft_putchar('\n');
-      ft_putchar(map[i]);
-    // ft_putendl(map[i]);
-    i++;
-  }
-  ft_putchar('\n');
 }

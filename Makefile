@@ -31,6 +31,7 @@ SRC_NAME =		main.c\
 							tools.c\
 							init.c\
 							fill_piece.c\
+							print_stuff.c\
 							pieces.c\
 							resolve.c
 

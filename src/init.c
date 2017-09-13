@@ -48,7 +48,14 @@ int verif(char *file) {
   add_piece(fill_piece(piece, name++));
   return (j / 4 - 1);
 }
+/*
+TODO fix this
 
+#...
+.#..
+.#..
+.#..
+*/
 int verify_touch(char *line) {
   int i = 0;
   while (line[i]) {
@@ -61,7 +68,6 @@ int verify_touch(char *line) {
   }
   return 1;
 }
-
 char *init_map(int n) {
    char *map;
   int  i;
@@ -82,6 +88,7 @@ void init(char *file, t_prog *p) {
   t_triminos *t;
 
   n =  verif(file);
+  n = 8;
    p->size = n;
   if (n == 0)
     ft_exit("Bad map!");
