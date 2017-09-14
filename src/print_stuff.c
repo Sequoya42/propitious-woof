@@ -47,7 +47,14 @@ void print_pieces() {
     t = t->next;
   }
 }
-
+/*
+ABBBB.
+ACCCEE
+AFFCEE
+A.FFGG
+HHHDDG
+.HDD.G
+*/
 void print_map(char *map) {
   int i;
 

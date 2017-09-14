@@ -36,7 +36,9 @@ int verif(char *file) {
   if (fd < 0)
     return (0);
   while (get_next_line(fd, &line)) {
-    if (line[0] == '\0') {
+    if (line[0] == '\0' && piece == NULL)
+    return 0;
+    else if (line[0] == '\0') {
       add_piece(fill_piece(piece, name++));
       piece = NULL;
     } else {
@@ -46,7 +48,7 @@ int verif(char *file) {
     j++;
   }
   add_piece(fill_piece(piece, name++));
-  return (j / 4 - 1);
+  return (j / 4 - 2);
 }
 /*
 TODO fix this
@@ -61,7 +63,7 @@ int verify_touch(char *line) {
   while (line[i]) {
     if (line[i] == '#') {
       if (line[i + 1] != '#' && line[i - 1] != '#' && line[i + 4] != '#' &&
-          line[i >= 4 ? i - 4 : 0] != '#')
+          line[i >= 4 ? i - 4 : -1] != '#')
         return 0;
     }
     i++;

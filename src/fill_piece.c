@@ -26,6 +26,7 @@ void fill_order(t_triminos  *t){
     j = 0;
     while (t->res[i]){
       if (t->res[i] == '#'){
+        // t->pos[j].x = i - start;
         t->pos[j].x = (i % 4) - (start % 4);
         t->pos[j].y = (i / 4) - (start / 4);
         j++;

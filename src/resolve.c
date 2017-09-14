@@ -20,7 +20,7 @@ int place_piece(t_triminos *t, t_prog *p, int start) {
   int x[4];
 
   c = 0;
-  if (start >= (int)ft_strlen(p->map))
+  if (start > (int)ft_strlen(p->map) - 4)
     return 0;
   i = find_first(p->map, '.', start);
    firstPos.x = i % p->size;
@@ -29,10 +29,7 @@ int place_piece(t_triminos *t, t_prog *p, int start) {
 while (c < 3){
    newPos.x = i % p->size + t->pos[c].x;
    newPos.y =  firstPos.y + t->pos[c].y;
-   if (newPos.x >= p->size ||
-      newPos.x < 0 ||
-       newPos.y < 0 ||
-        newPos.y >= p->size){
+   if (newPos.x > p->size || newPos.x < 0 || newPos.y < 0 || newPos.y > p->size){
      return place_piece(t, p, start + 1);
    }
   x[c] = newPos.y * p->size + newPos.x;
@@ -55,6 +52,7 @@ void solve(t_prog *p) {
     ft_colendl(&f->name);
     if (!place_piece(f, p, 0)){
       p->size += 1;
+      print_map(p->map);
       p->map = init_map(p->size);
       f  = p->first;
     }

@@ -32,6 +32,6 @@ int main(int ac, char **av) {
 
   solve(p);
   print_map(p->map);
-  
+
   return (0);
 }
