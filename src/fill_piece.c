@@ -26,7 +26,6 @@ void fill_order(t_triminos  *t){
     j = 0;
     while (t->res[i]){
       if (t->res[i] == '#'){
-        // t->pos[j].x = i - start;
         t->pos[j].x = (i % 4) - (start % 4);
         t->pos[j].y = (i / 4) - (start / 4);
         j++;
@@ -42,6 +41,7 @@ t_triminos *fill_piece(char *piece, char name) {
     ft_exit("Bad alloc of processus\n");
   n->piece = piece;
   n->res = piece;
+  n->placed = 0;
   while (trim_col(n->res, 4))
     n->res = displace(n->res, 4, 1);
   while (trim_line(n->res, 4))

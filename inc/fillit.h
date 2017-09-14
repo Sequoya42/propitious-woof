@@ -21,15 +21,6 @@ typedef struct s_prog t_prog;
 
 typedef struct s_cor t_cor;
 typedef struct s_pos t_pos;
-/*unused, can be removed*/
-struct 			s_cor
-{
-		int mx;
-		int my;
-		int px;
-		int py;
-};
-
 
 struct 			s_pos
 {
@@ -40,6 +31,8 @@ struct 			s_pos
 struct 			s_prog
 {
 	int 			size;
+	int				placed;
+	int				npieces;
 	t_triminos *first;
 	t_triminos 	*last;
 	char 			*map;
@@ -49,6 +42,7 @@ char 			 nik[2048];
 struct			s_gen
 {
 	char			name;
+	int       placed;
 	char			*piece;
 	char			*res;
 	t_pos			pos[3];

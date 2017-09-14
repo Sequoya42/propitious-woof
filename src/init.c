@@ -50,14 +50,7 @@ int verif(char *file) {
   add_piece(fill_piece(piece, name++));
   return (j / 4 - 2);
 }
-/*
-TODO fix this
 
-#...
-.#..
-.#..
-.#..
-*/
 int verify_touch(char *line) {
   int i = 0;
   while (line[i]) {
@@ -70,6 +63,7 @@ int verify_touch(char *line) {
   }
   return 1;
 }
+
 char *init_map(int n) {
    char *map;
   int  i;
@@ -95,10 +89,12 @@ void init(char *file, t_prog *p) {
   if (n == 0)
     ft_exit("Bad map!");
   t = p->first;
+  p->npieces = 0;
   while (t) {
     if (!verify_touch(t->piece))
       ft_exit("Bad piece, all '#' must touch");
     t = t->next;
+    p->npieces++;
   }
   p->map = init_map(n);
 }
