@@ -12,6 +12,10 @@
 
 #include "fillit.h"
 
+/*
+[permet juste de pas devoir passer p partout, et d'y avoir acces a l'arrache]
+singleton sale, il faut pas, mais faineantise.
+*/
 t_prog *get_prog(void) {
   static t_prog p;
 
@@ -26,10 +30,7 @@ int main(int ac, char **av) {
     return (-1);
   p = get_prog();
   init(av[1], p);
-  print_pieces();
-
-  print_map(p->map);
-
+  // print_pieces(); [debug purposes]
   solve(p);
   print_map(p->map);
 
