@@ -66,7 +66,7 @@ piece = piece == NULL ? ft_strdup(line) : ft_strjoin(piece, line);
 ce bail la en gros vu que tu lis ligne par ligne,
 si la piece est vide ,copies la premiere ligne, sinon rajoutes les suivantes
 */
-int verif(fd) {
+int verif(int fd) {
   char *piece;
   int j;
   char *line;
