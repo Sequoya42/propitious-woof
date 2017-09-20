@@ -24,8 +24,8 @@ typedef struct s_pos t_pos;
 
 #define FIRST_POINT 3
 
-#define OVERFLOWX (new_pos.x > p->size || new_pos.x < 0)
-#define OVERFLOWY (new_pos.y < 0 || new_pos.y > p->size)
+#define OVERFLOWX (new_pos.x >= p->size || new_pos.x < 0)
+#define OVERFLOWY (new_pos.y < 0 || new_pos.y >= p->size)
 
 struct s_pos {
   int x;
