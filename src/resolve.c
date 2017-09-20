@@ -86,7 +86,6 @@ void solve(t_prog *p)
 
 	while (p->placed < p->npieces)
 	{
-		print_map(p->map);
 		tmp = place_piece(next_available(f), p, i);
 		tmp ? ( (f = tmp->next ? tmp->next : p->first) && p->placed++ ) : i++;
 		if (i == l)
