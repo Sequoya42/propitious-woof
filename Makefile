@@ -19,13 +19,13 @@ CFLAG =			-Wall -Wextra -Werror
 
 NAME =			fillit
 
-SRC_PATH =		./src/
+SRC_PATH =		./
 
 OBJ_PATH =		./obj/
 
 LIBFT_PATH =	./libft/
 
-INC_PATH =		./inc/
+INC_PATH =		./
 
 SRC_NAME =		main.c\
 							tools.c\
