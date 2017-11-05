@@ -22,7 +22,7 @@ t_triminos		*fill_map(t_prog *p, int points[4], t_triminos *t)
 	return (t);
 }
 
-t_triminos		*back_track(t_triminos *t, t_prog *p, int start){
+t_triminos		*back_track(t_triminos *t, t_prog *p, int *start){
 	int i = 0;
 	int first = 0;
 	while (p->map[i]) {
@@ -30,13 +30,13 @@ t_triminos		*back_track(t_triminos *t, t_prog *p, int start){
 			p->map[i] = '.';
 			if (first == 0){
 				first = 1;
-				start = i;
+				*start = i;
 			}
 		}
 		i++;
 	}
 	t->placed = 0;
-
+	return t->next;
 }
 
 t_triminos		*place_piece(t_triminos *t, t_prog *p, int start)
@@ -47,8 +47,11 @@ t_triminos		*place_piece(t_triminos *t, t_prog *p, int start)
 	int		points[4];
 
 	c = 0;
-	if (!t)
+	if (!t){
 		return (NULL);
+		// return (place_piece(next_available(back_track(t,p, &start )), p, start));
+	}
+		// return (NULL);
 	points[FIRST_POINT] = find_first(p->map, '.', start);
 	first_y = points[FIRST_POINT] / p->size;
 	while (c < 3)
