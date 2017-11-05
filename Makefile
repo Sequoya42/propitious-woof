@@ -49,7 +49,7 @@ LIBFT =			$(addprefix $(LIBFT_PATH),$(LIBFT_NAME))
 
 INC =			$(addprefix $(INC_PATH),$(INC_NAME))
 
-INCLIBFT = 		$(LIBFT_PATH)inc
+INCLIBFT = 		$(LIBFT_PATH)
 
 
 LIBFT_FLAG = 	-L$(LIBFT_PATH) -lft

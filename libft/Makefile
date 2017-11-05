@@ -16,11 +16,11 @@ CFLAG = -Wall -Werror -Wextra
 
 NAME = libft.a
 
-INC_PATH =	./inc/
+INC_PATH =	./
 
-OBJ_PATH = ./obj/
+OBJ_PATH = ./
 
-SRC_PATH = ./src/
+SRC_PATH = ./
 
 SRC_NAME = ft_atoi.c		ft_bzero.c		ft_isalnum.c	ft_isalpha.c	\
     ft_isascii.c	ft_isdigit.c	ft_isprint.c	ft_itoa.c		\
@@ -41,7 +41,7 @@ SRC_NAME = ft_atoi.c		ft_bzero.c		ft_isalnum.c	ft_isalpha.c	\
 	ft_nb_tab.c		ft_split_char.c	ft_update_tab.c	ft_error.c		\
 	ft_strdup_tab.c	debug.c			match.c			ft_base.c		\
 	ft_is_blank.c	ft_print.c		ft_read.c		print_memory.c	\
-	
+
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC =		$(addprefix $(SRC_PATH),$(SRC_NAME))

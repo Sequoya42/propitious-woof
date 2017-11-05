@@ -22,6 +22,23 @@ t_triminos		*fill_map(t_prog *p, int points[4], t_triminos *t)
 	return (t);
 }
 
+t_triminos		*back_track(t_triminos *t, t_prog *p, int start){
+	int i = 0;
+	int first = 0;
+	while (p->map[i]) {
+		if (p->map[i] == t->name){
+			p->map[i] = '.';
+			if (first == 0){
+				first = 1;
+				start = i;
+			}
+		}
+		i++;
+	}
+	t->placed = 0;
+
+}
+
 t_triminos		*place_piece(t_triminos *t, t_prog *p, int start)
 {
 	int		first_y;
@@ -38,10 +55,8 @@ t_triminos		*place_piece(t_triminos *t, t_prog *p, int start)
 	{
 		new_pos.x = points[FIRST_POINT] % p->size + t->pos[c].x;
 		new_pos.y = first_y + t->pos[c].y;
-		if (OVERFLOWX || OVERFLOWY)
-			return (place_piece(next_available(t->next), p, start));
 		points[c] = new_pos.y * p->size + new_pos.x;
-		if (p->map[points[c]] != '.')
+		if (OVERFLOWX || OVERFLOWY || p->map[points[c]] != '.')
 			return (place_piece(next_available(t->next), p, start));
 		c++;
 	}
@@ -82,6 +97,10 @@ void			solve(t_prog *p)
 			i++;
 		if (i == l)
 		{
+			ft_putendl("RESET");
+			ft_putendl("--------------------");
+			print_map(p->map);
+			ft_putendl("--------------------");
 			reset(p);
 			i = 0;
 			l = ft_strlen(p->map) - 1;

@@ -27,6 +27,9 @@ t_triminos		*fill_piece(char *piece, char name)
 
 	if (!(n = ft_memalloc(sizeof(t_triminos))))
 		ft_exit("Bad alloc of processus\n");
+	if (!piece || ft_strlen(piece) != 16){
+		ft_exit("error");
+	}
 	n->piece = piece;
 	n->placed = 0;
 	fill_order(n);

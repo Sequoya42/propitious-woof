@@ -55,7 +55,7 @@ void init(char *file, t_prog *p);
 t_triminos *fill_piece(char *piece, char name);
 void add_piece(t_triminos *n);
 void print_pieces();
-
+int				verify_pos(char *line,int  i);
 // ******** ********  resolve  ******** ********
 void solve(t_prog *p);
 

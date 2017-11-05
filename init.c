@@ -7,18 +7,18 @@ static char		*check(char *line, int j)
 
 	i = 0;
 	if (ft_strlen(line) != 4 && line[0] != '\0')
-		ft_exit("Lines do not have the same length\n");
+		ft_exit("error");
 	while (line[i])
 	{
 		if (line[i] == '#')
 			k++;
 		j = j % 5;
 		if (line[i] != '.' && line[i] != '\0' && line[i] != '#')
-			ft_exit("Bad char, please only use . and #\n");
+			ft_exit("error");
 		i++;
 	}
 	if (j == 4 && k != 4)
-		ft_exit("Invalid piece\n");
+		ft_exit("error");
 	else if (j == 4)
 		k = 0;
 	return (line);
@@ -27,19 +27,22 @@ static char		*check(char *line, int j)
 int				verify_touch(char *line)
 {
 	int			i;
+	int			j;
+	int			x;
 
 	i = 0;
+	j = 0;
+	x = 0;
 	while (line[i])
 	{
 		if (line[i] == '#')
 		{
-			if (line[i + 1] != '#' && line[i - 1] != '#' && line[i + 4] != '#'
-				&& line[i >= 4 ? i - 4 : -1] != '#')
-				return (0);
+			x += verify_pos(line, i);
+			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (x >= 6);
 }
 
 char			*init_map(int n)
@@ -95,13 +98,13 @@ void			init(char *file, t_prog *p)
 	n = verif(fd);
 	p->size = n;
 	if (n == 0)
-		ft_exit("Bad map!");
+		ft_exit("error");
 	t = p->first;
 	p->npieces = 0;
 	while (t)
 	{
 		if (!verify_touch(t->piece))
-			ft_exit("Bad piece, all '#' must touch");
+			ft_exit("error");
 		t = t->next;
 		p->npieces++;
 	}
