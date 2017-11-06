@@ -1,9 +1,9 @@
 #include "fillit.h"
 
-static char		*check(char *line, int j)
+static char             *check(char *line, int j)
 {
-	int				i;
-	static int		k = 0;
+	int i;
+	static int k = 0;
 
 	i = 0;
 	if (ft_strlen(line) != 4 && line[0] != '\0')
@@ -24,11 +24,11 @@ static char		*check(char *line, int j)
 	return (line);
 }
 
-int				verify_touch(char *line)
+int                             verify_touch(char *line)
 {
-	int			i;
-	int			j;
-	int			x;
+	int i;
+	int j;
+	int x;
 
 	i = 0;
 	j = 0;
@@ -45,11 +45,11 @@ int				verify_touch(char *line)
 	return (x >= 6);
 }
 
-char			*init_map(int n)
+char                    *init_map(int n)
 {
-	char		*map;
-	int			i;
-	int			l;
+	char            *map;
+	int i;
+	int l;
 
 	l = (n * n) + 1;
 	i = 0;
@@ -59,12 +59,12 @@ char			*init_map(int n)
 	return (map);
 }
 
-int				verif(int fd)
+int                             verif(int fd)
 {
-	char			*piece;
-	int				j;
-	char			*line;
-	char			name;
+	char                    *piece;
+	int j;
+	char                    *line;
+	char name;
 
 	piece = NULL;
 	name = 'A';
@@ -88,11 +88,11 @@ int				verif(int fd)
 	return (4);
 }
 
-void			init(char *file, t_prog *p)
+void                    init(char *file, t_prog *p)
 {
-	int			fd;
-	int			n;
-	t_triminos	*t;
+	int fd;
+	int n;
+	t_triminos      *t;
 
 	fd = open(file, O_RDONLY);
 	n = verif(fd);

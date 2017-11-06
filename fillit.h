@@ -35,6 +35,7 @@ struct s_pos {
 struct s_prog {
   int size;
   int placed;
+  int tried;
   int npieces;
   t_triminos *first;
   t_triminos *last;
@@ -44,6 +45,7 @@ struct s_prog {
 struct s_gen {
   char name;
   int placed;
+  int tested;
   char *piece;
   t_pos pos[3];
   t_triminos *next;
