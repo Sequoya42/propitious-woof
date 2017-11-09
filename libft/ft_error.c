@@ -12,32 +12,38 @@
 
 #include "libft.h"
 
-int ft_error(char *name, char *arg, char *msg) {
-  if (name != NULL) {
-    ft_putstr_fd(name, 2);
-    ft_putstr_fd(": ", 2);
-  }
-  if (arg != NULL) {
-    ft_putstr_fd(arg, 2);
-    ft_putstr_fd(": ", 2);
-  }
-  ft_putendl_fd(msg, 2);
-  return (-1);
+int			ft_error(char *name, char *arg, char *msg)
+{
+	if (name != NULL)
+	{
+		ft_putstr_fd(name, 2);
+		ft_putstr_fd(": ", 2);
+	}
+	if (arg != NULL)
+	{
+		ft_putstr_fd(arg, 2);
+		ft_putstr_fd(": ", 2);
+	}
+	ft_putendl_fd(msg, 2);
+	return (-1);
 }
 
-void ft_exit(char *msg) {
-  ft_putendl_fd(msg, 1);
-  exit(-1);
+void		ft_exit(char *msg)
+{
+	ft_putendl_fd(msg, 1);
+	exit(-1);
 }
 
-void ft_colstr(char *col, char *msg) {
-  ft_putstr(col);
-  ft_putstr(msg);
-  ft_putstr(KNRM);
+void		ft_colstr(char *col, char *msg)
+{
+	ft_putstr(col);
+	ft_putstr(msg);
+	ft_putstr(KNRM);
 }
 
-void ft_colendl(char *s) {
-  ft_putstr(KGRN);
-  ft_putendl(s);
-  ft_putstr(KNRM);
+void		ft_colendl(char *s)
+{
+	ft_putstr(KGRN);
+	ft_putendl(s);
+	ft_putstr(KNRM);
 }

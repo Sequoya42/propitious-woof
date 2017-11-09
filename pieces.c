@@ -1,10 +1,10 @@
 #include "fillit.h"
 
-void                    fill_order(t_triminos *t)
+void				fill_order(t_triminos *t)
 {
-	int start;
-	int i;
-	int j;
+	int				start;
+	int				i;
+	int				j;
 
 	start = find_first(t->piece, '#', 0);
 	i = start + 1;
@@ -21,13 +21,14 @@ void                    fill_order(t_triminos *t)
 	}
 }
 
-t_triminos              *fill_piece(char *piece, char name)
+t_triminos			*fill_piece(char *piece, char name)
 {
-	t_triminos      *n;
+	t_triminos		*n;
 
 	if (!(n = ft_memalloc(sizeof(t_triminos))))
 		ft_exit("Bad alloc of processus\n");
-	if (!piece || ft_strlen(piece) != 16) {
+	if (!piece || ft_strlen(piece) != 16)
+	{
 		ft_exit("error");
 	}
 	n->piece = piece;
@@ -37,9 +38,9 @@ t_triminos              *fill_piece(char *piece, char name)
 	return (n);
 }
 
-void                    add_piece(t_triminos *n)
+void				add_piece(t_triminos *n)
 {
-	t_prog          *p;
+	t_prog			*p;
 
 	p = get_prog();
 	if (!p->first)

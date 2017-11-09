@@ -1,9 +1,9 @@
 #include "fillit.h"
 
-static char             *check(char *line, int j)
+static char			*check(char *line, int j)
 {
-	int i;
-	static int k = 0;
+	static int		k = 0;
+	int				i;
 
 	i = 0;
 	if (ft_strlen(line) != 4 && line[0] != '\0')
@@ -24,11 +24,11 @@ static char             *check(char *line, int j)
 	return (line);
 }
 
-int                             verify_touch(char *line)
+int					verify_touch(char *line)
 {
-	int i;
-	int j;
-	int x;
+	int				i;
+	int				j;
+	int				x;
 
 	i = 0;
 	j = 0;
@@ -45,11 +45,11 @@ int                             verify_touch(char *line)
 	return (x >= 6);
 }
 
-char                    *init_map(int n)
+char				*init_map(int n)
 {
-	char            *map;
-	int i;
-	int l;
+	char			*map;
+	int				i;
+	int				l;
 
 	l = (n * n) + 1;
 	i = 0;
@@ -59,18 +59,16 @@ char                    *init_map(int n)
 	return (map);
 }
 
-int                             verif(int fd)
+int					verif(int fd)
 {
-	char                    *piece;
-	int j;
-	char                    *line;
-	char name;
+	char			*piece;
+	int				j;
+	char			*line;
+	char			name;
 
 	piece = NULL;
 	name = 'A';
 	j = 0;
-	if (fd < 0)
-		return (0);
 	while (get_next_line(fd, &line) && ++j)
 	{
 		if (line[0] == '\0' && piece == NULL)
@@ -78,7 +76,6 @@ int                             verif(int fd)
 		else if (line[0] == '\0')
 		{
 			add_piece(fill_piece(piece, name++));
-
 			piece = NULL;
 		}
 		else
@@ -89,25 +86,15 @@ int                             verif(int fd)
 	return (j);
 }
 
-int                                    find_bigger(int n) {
-	int i;
-	int r;
-
-	i = 2;
-	r = n * 4;
-	while ((i * i) < r) {
-		i += 1;
-	}
-	return i;
-}
-
-void                    init(char *file, t_prog *p)
+void				init(char *file, t_prog *p)
 {
-	int fd;
-	int n;
-	t_triminos      *t;
+	int				fd;
+	int				n;
+	t_triminos		*t;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		ft_exit("error");
 	n = verif(fd);
 	if (n == 0)
 		ft_exit("error");
@@ -124,6 +111,5 @@ void                    init(char *file, t_prog *p)
 	}
 	p->current = 0;
 	p->size = find_bigger(p->npieces);
-	// p->size = 3;
 	p->map = init_map(p->size);
 }
