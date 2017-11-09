@@ -50,5 +50,6 @@ void	print_map(char *map)
 		ft_putchar(map[i]);
 		i++;
 	}
-	ft_putchar('\n');
+	// ft_putchar('\n');
+	ft_colendl("\n ******** ********    ******** ********");
 }

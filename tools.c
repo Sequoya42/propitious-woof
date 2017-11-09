@@ -14,8 +14,14 @@ int             ft_sqrt(int n)
 
 int             find_first(char *s, char c, int start)
 {
-	while (s[start] && s[start] != c)
+	if (start == -1)
+	return (-1);
+	while (s[start] && s[start] != c){
+		if (!s[start]){
+			return (-1);
+		}
 		start++;
+	}
 	return (start);
 }
 
