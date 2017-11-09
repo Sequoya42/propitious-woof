@@ -11,7 +11,19 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+/*
+   // TODO
 
+   Listen to nipal.
+   Permutations won't work.
+   Place, a, then b, then c etc
+
+   If can't place c, move b to the next fit area.
+   If still cant place c, move b
+   If end of map, move a, then place b
+   etc
+
+ */
 t_prog          *get_prog(void)
 {
 	static t_prog p;

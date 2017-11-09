@@ -53,27 +53,34 @@ int place_piece(t_triminos *t, t_prog *p, int start)
 	fill_map(p, points, t);
 	return (1);
 }
-
+/*
+   TODO
+   reimplement remove piece to place to next spot
+ */
 void                    solve(t_prog *p)
 {
 	t_triminos      *f;
 	int current;
+	int i;
 
 	current = 0;
 	char *save = ft_strdup(p->order);
 	f = p->first;
 	while (current <= p->npieces - 1)
 	{
-		if (place_piece(next_available(p, p->order[current]), p, 0)) {
+		if (place_piece(next_available(p, p->order[current]), p, i)) {
 			current++;
+			i = 0;
 		}else{
+			i++;
 			// print_map(p->map);
 			// ft_colendl("--------------");
-			if (!next_permutation(p->order)) {
+			if (i >= (int)ft_strlen(p->map) - 3 && current == 0) {
+				i = 0;
 				p->size += 1;
 				p->order = ft_strdup(save);
 			}
-			current = 0;
+			current--;
 			p->map = init_map(p->size);
 		}
 	}

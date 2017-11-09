@@ -124,5 +124,6 @@ void                    init(char *file, t_prog *p)
 	}
 	p->current = 0;
 	p->size = find_bigger(p->npieces);
+	p->size = 3;
 	p->map = init_map(p->size);
 }
