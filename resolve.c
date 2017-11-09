@@ -58,7 +58,7 @@ int place_piece(t_triminos *t, t_prog *p, int start)
    reimplement remove piece to place to next spot
  */
 
-int 					remove(t_prog *p, int current){
+int                                     remove(t_prog *p, int current){
 	int i;
 	int start;
 	char name;
@@ -66,16 +66,16 @@ int 					remove(t_prog *p, int current){
 	start = -1;
 	i = -1;
 	name = p->order[current];
-	while (p->map[++i]){
-		if (p->map[i] == name){
+	while (p->map[++i]) {
+		if (p->map[i] == name) {
 			p->map[i] = '.';
 			if (start == -1)
 				start = i;
 		}
 	}
-	ft_print("REMOVE %d\n", start);
+	// ft_print("REMOVE %d\n", start);
 	if (start == -1)
-	return -1;
+		return -1;
 	return (start + 1);
 }
 
@@ -90,7 +90,7 @@ void                    solve(t_prog *p)
 	i = 0;
 	while (current <= p->npieces - 1)
 	{
-		print_map(p->map);
+		// print_map(p->map);
 		if (place_piece(next_available(p, p->order[current]), p, i)) {
 			current++;
 			i = 0;
