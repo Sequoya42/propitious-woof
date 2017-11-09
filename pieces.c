@@ -31,8 +31,6 @@ t_triminos              *fill_piece(char *piece, char name)
 		ft_exit("error");
 	}
 	n->piece = piece;
-	n->placed = 0;
-	n->tested = 0;
 	fill_order(n);
 	n->name = name;
 	n->next = NULL;

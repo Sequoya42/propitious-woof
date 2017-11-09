@@ -35,21 +35,22 @@ struct s_pos {
 struct s_prog {
   int size;
   int placed;
-  int tried;
+  int current;
   int npieces;
   t_triminos *first;
   t_triminos *last;
   char *map;
+  char *order;
 };
 
 struct s_gen {
   char name;
-  int placed;
-  int tested;
   char *piece;
   t_pos pos[3];
   t_triminos *next;
 };
+
+int next_permutation(char *array);
 
 t_prog *get_prog(void);
 char *init_map(int n);

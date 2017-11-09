@@ -1,6 +1,6 @@
 /* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
+/*                                                                            */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
@@ -12,16 +12,16 @@
 
 #include "fillit.h"
 
-t_prog		*get_prog(void)
+t_prog          *get_prog(void)
 {
-	static	t_prog p;
+	static t_prog p;
 
 	return (&p);
 }
 
-int			main(int ac, char **av)
+int                     main(int ac, char **av)
 {
-	t_prog	*p;
+	t_prog  *p;
 
 	if (ac != 2)
 		return (-1);
@@ -31,3 +31,12 @@ int			main(int ac, char **av)
 	print_map(p->map);
 	return (0);
 }
+
+// char *str = ft_memalloc(4);
+// str[0] = 'A';
+// str[1] = 'B';
+// str[2] = 'C';
+// // str[3] = '\0';
+// ft_putendl(str);
+// next_permutation(str);
+// ft_putendl(str);

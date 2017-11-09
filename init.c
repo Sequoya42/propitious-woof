@@ -78,6 +78,7 @@ int                             verif(int fd)
 		else if (line[0] == '\0')
 		{
 			add_piece(fill_piece(piece, name++));
+
 			piece = NULL;
 		}
 		else
@@ -85,7 +86,19 @@ int                             verif(int fd)
 		piece = piece == NULL ? ft_strdup(line) : ft_strjoin(piece, line);
 	}
 	add_piece(fill_piece(piece, name++));
-	return (4);
+	return (j);
+}
+
+int                                    find_bigger(int n) {
+	int i;
+	int r;
+
+	i = 2;
+	r = n * 4;
+	while ((i * i) < r) {
+		i += 1;
+	}
+	return i;
 }
 
 void                    init(char *file, t_prog *p)
@@ -96,17 +109,20 @@ void                    init(char *file, t_prog *p)
 
 	fd = open(file, O_RDONLY);
 	n = verif(fd);
-	p->size = n;
 	if (n == 0)
 		ft_exit("error");
 	t = p->first;
 	p->npieces = 0;
+	p->order = ft_memalloc(26);
 	while (t)
 	{
 		if (!verify_touch(t->piece))
 			ft_exit("error");
+		p->order[p->npieces] = t->name;
 		t = t->next;
 		p->npieces++;
 	}
-	p->map = init_map(n);
+	p->current = 0;
+	p->size = find_bigger(p->npieces);
+	p->map = init_map(p->size);
 }

@@ -1,8 +1,8 @@
 #include "fillit.h"
 
-int		ft_sqrt(int n)
+int             ft_sqrt(int n)
 {
-	int	i;
+	int i;
 
 	i = 2;
 	while (i * i < n)
@@ -12,16 +12,16 @@ int		ft_sqrt(int n)
 	return (i);
 }
 
-int		find_first(char *s, char c, int start)
+int             find_first(char *s, char c, int start)
 {
-	while (s[start] != c)
+	while (s[start] && s[start] != c)
 		start++;
 	return (start);
 }
 
-int				verify_pos(char *line, int i)
+int                             verify_pos(char *line, int i)
 {
-	int 		z;
+	int z;
 
 	z = 0;
 	if (line[i + 1] == '#')
@@ -33,15 +33,45 @@ int				verify_pos(char *line, int i)
 	if (line[i - 4] == '#')
 		z++;
 	return z;
-	// if (((j == 0 || j == 3) && z >= 1) || z >= 2){
-	// 	ft_putendl("IF");
-	// 	ft_putnbrendl(j);
-	// 	return (z);
-	// }
-	// else{
-	// 	ft_putendl("ELSE");
-	// 	ft_putnbrendl(j);
-	// 	ft_putnbrendl(z);
-	// 	return (0);
-	// }
+}
+
+
+void     swap_char(char *array, int i, int j){
+	int tmp;
+
+	tmp = array[i];
+	array[i] = array[j];
+	array[j] = tmp;
+}
+
+// https://www.nayuki.io/page/next-lexicographical-permutation-algorithm
+
+int next_permutation(char *array) {
+	int i;
+	int j;
+	int length;
+
+	length = ft_strlen(array);
+	i = length - 1;
+	j = length - 1;
+	while (i > 0 && array[i - 1] >= array[i]) {
+		i--;
+	}
+	if (i == 0) {
+		return 0;
+		// return NULL;
+	}
+	// Find successor to pivot
+	while (array[j] <= array[i - 1])
+		j--;
+	swap_char(array, i -1, j);
+
+	j = length - 1;
+	while (i < j) {
+		swap_char(array, i, j);
+		i++;
+		j--;
+	}
+	return 1;
+	// return array;
 }
